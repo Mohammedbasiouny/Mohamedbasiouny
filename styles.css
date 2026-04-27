@@ -90,6 +90,26 @@ body{
   border-left:none;
   border-top:none;
 }
+.border-frame-inner::before,
+.border-frame-inner::after{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:22px;
+  border:0.55px solid rgba(230,192,142,0.7);
+}
+.border-frame-inner::before{
+  top:-1px;
+  right:-1px;
+  border-left:none;
+  border-bottom:none;
+}
+.border-frame-inner::after{
+  left:-1px;
+  bottom:-1px;
+  border-right:none;
+  border-top:none;
+}
 .border-frame-inner{
   position:absolute;
   inset:14px;
@@ -188,6 +208,7 @@ body{
   font-weight:400;
   color:var(--gold-deep);
   background:linear-gradient(165deg, #f6d9ac 8%, #d79f61 42%, #995c22 78%, #f2c98f 100%);
+  background-size:200% 100%;
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -195,6 +216,7 @@ body{
   letter-spacing:0.05em;
   line-height:1.12;
   display:block;
+  animation:foilShimmer 6.2s ease-in-out infinite;
 }
 .name-amp{
   font-family:'Bodoni Moda', serif;
@@ -321,6 +343,11 @@ body{
   50%{opacity:1;transform:rotate(45deg) scale(1.15)}
 }
 
+@keyframes foilShimmer{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
 @keyframes cardSheen{
   0%,55%{transform:translateX(-120%)}
   100%{transform:translateX(140%)}
@@ -337,6 +364,8 @@ body{
   .detail-item{padding:0.8rem 0.45rem}
   .border-frame::before,
   .border-frame::after{width:34px;height:34px}
+  .border-frame-inner::before,
+  .border-frame-inner::after{width:18px;height:18px}
 }
 
 @media (prefers-reduced-motion:reduce){
