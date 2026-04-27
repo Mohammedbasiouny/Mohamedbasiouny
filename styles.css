@@ -1,0 +1,283 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 82% 78%, rgba(214,173,120,0.18) 0%, rgba(214,173,120,0) 45%),
+    #eee8e0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem;
+  animation:pageFade 900ms ease-out both;
+}
+.card{
+  background:#fdfaf6;
+  max-width:460px;
+  width:100%;
+  position:relative;
+  box-shadow:0 8px 48px rgba(120,80,40,0.13);
+  overflow:hidden;
+  transform:translateY(20px) scale(0.985);
+  opacity:0;
+  animation:cardIn 850ms cubic-bezier(.2,.7,.2,1) 120ms forwards;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60% -40% auto;
+  height:200px;
+  background:linear-gradient(100deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0) 80%);
+  transform:translateX(-120%);
+  animation:cardSheen 4.8s ease-in-out 1.2s infinite;
+  pointer-events:none;
+  z-index:1;
+}
+.border-frame{
+  position:absolute;
+  inset:10px;
+  border:0.8px solid #c8a87a;
+  pointer-events:none;
+  z-index:3;
+}
+.border-frame-inner{
+  position:absolute;
+  inset:14px;
+  border:0.3px solid #e0c89a;
+  pointer-events:none;
+  z-index:3;
+}
+.photo-wrap{
+  width:100%;
+  height:320px;
+  overflow:hidden;
+  position:relative;
+}
+.photo-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 15%;
+  display:block;
+  filter:sepia(12%) saturate(90%);
+  transform:scale(1.06);
+  animation:imageSettle 1200ms ease-out 280ms forwards;
+}
+.photo-fade{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:160px;
+  background:linear-gradient(to bottom, transparent 0%, #fdfaf6 100%);
+}
+.content{
+  padding:0 2.8rem 2.6rem;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.content > *{
+  opacity:0;
+  transform:translateY(14px);
+  animation:revealUp 700ms ease forwards;
+}
+.content > *:nth-child(1){animation-delay:260ms}
+.content > *:nth-child(2){animation-delay:340ms}
+.content > *:nth-child(3){animation-delay:420ms}
+.content > *:nth-child(4){animation-delay:500ms}
+.content > *:nth-child(5){animation-delay:580ms}
+.content > *:nth-child(6){animation-delay:660ms}
+.content > *:nth-child(7){animation-delay:740ms}
+.content > *:nth-child(8){animation-delay:820ms}
+.content > *:nth-child(9){animation-delay:900ms}
+.content > *:nth-child(10){animation-delay:980ms}
+.bismi{
+  font-family:'Scheherazade New', serif;
+  font-size:22px;
+  color:#8a5c38;
+  direction:rtl;
+  line-height:2;
+  margin-bottom:0.1rem;
+}
+.occasion-ar{
+  font-family:'Scheherazade New', serif;
+  font-size:17px;
+  color:#b08050;
+  direction:rtl;
+  line-height:1.9;
+  margin-bottom:1rem;
+}
+.occasion-en{
+  font-family:'Tenor Sans', sans-serif;
+  font-size:10px;
+  letter-spacing:0.26em;
+  text-transform:uppercase;
+  color:#aa7a4d;
+  margin-bottom:0.8rem;
+}
+.thin-rule{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0.6rem 0 1.4rem;
+}
+.thin-rule-spaced{margin-top:1.2rem}
+.rule-line{height:0.5px;flex:1;background:#d4b080}
+.rule-diamond{
+  width:6px;height:6px;
+  background:#c4905a;
+  transform:rotate(45deg);
+  flex-shrink:0;
+  animation:diamondPulse 2.6s ease-in-out infinite;
+}
+.names-block{
+  margin-bottom:0.2rem;
+}
+.name{
+  font-family:'Bodoni Moda', serif;
+  font-size:52px;
+  font-weight:400;
+  color:#3d2510;
+  letter-spacing:0.04em;
+  line-height:1.15;
+  display:block;
+}
+.name-amp{
+  font-family:'Bodoni Moda', serif;
+  font-style:italic;
+  font-size:22px;
+  color:#c4905a;
+  display:block;
+  margin:0.3rem 0;
+  letter-spacing:0.1em;
+}
+.details-wrap{
+  margin:1.4rem 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+.detail-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+}
+.dl{
+  font-family:'Tenor Sans', sans-serif;
+  font-size:9px;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:#c4a070;
+}
+.dv{
+  font-family:'Bodoni Moda', serif;
+  font-size:20px;
+  font-weight:400;
+  color:#3d2510;
+  letter-spacing:0.02em;
+  line-height:1.4;
+}
+.dv-sub{
+  font-family:'Tenor Sans', sans-serif;
+  font-size:13px;
+  color:#9a7050;
+  margin-top:1px;
+}
+.map-link{
+  font-family:'Tenor Sans', sans-serif;
+  font-size:9px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#c4905a;
+  text-decoration:none;
+  border-bottom:0.5px solid #e0c090;
+  padding-bottom:1px;
+  margin-top:4px;
+  display:inline-block;
+  transition:color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.map-link:hover{
+  color:#a76f3d;
+  border-bottom-color:#c4905a;
+  transform:translateY(-1px);
+}
+.map-link:focus-visible{
+  outline:1px dashed #b98955;
+  outline-offset:4px;
+}
+.ayah-wrap{
+  border-top:0.5px solid #e0c8a0;
+  border-bottom:0.5px solid #e0c8a0;
+  padding:1rem 0.5rem;
+  margin:1.4rem 0 1.2rem;
+}
+.ayah-ar{
+  font-family:'Scheherazade New', serif;
+  font-size:17px;
+  color:#7a5030;
+  direction:rtl;
+  line-height:2.2;
+  margin-bottom:0.3rem;
+}
+.ayah-en{
+  font-family:'Bodoni Moda', serif;
+  font-style:italic;
+  font-size:12px;
+  color:#a08050;
+  line-height:1.8;
+}
+.ayah-ref{
+  font-size:11px;
+  color:#c4a070;
+}
+.rsvp-wrap{text-align:center}
+.rsvp-wrap .dl{margin-bottom:3px}
+.rsvp-wrap .dv{font-size:17px}
+
+@keyframes pageFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(20px) scale(0.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes imageSettle{
+  from{transform:scale(1.06)}
+  to{transform:scale(1)}
+}
+
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes diamondPulse{
+  0%,100%{opacity:.7;transform:rotate(45deg) scale(1)}
+  50%{opacity:1;transform:rotate(45deg) scale(1.15)}
+}
+
+@keyframes cardSheen{
+  0%,55%{transform:translateX(-120%)}
+  100%{transform:translateX(140%)}
+}
+
+@media (max-width:540px){
+  body{padding:1rem}
+  .photo-wrap{height:280px}
+  .content{padding:0 1.4rem 2rem}
+  .name{font-size:42px}
+  .dv{font-size:18px}
+  .ayah-ar{font-size:16px;line-height:2.05}
+  .occasion-en{font-size:9px;letter-spacing:0.22em}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
