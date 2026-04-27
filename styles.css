@@ -69,6 +69,27 @@ body{
   pointer-events:none;
   z-index:3;
 }
+.border-frame::before,
+.border-frame::after{
+  content:"";
+  position:absolute;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(213,160,101,0.88);
+  opacity:.75;
+}
+.border-frame::before{
+  top:-1px;
+  left:-1px;
+  border-right:none;
+  border-bottom:none;
+}
+.border-frame::after{
+  right:-1px;
+  bottom:-1px;
+  border-left:none;
+  border-top:none;
+}
 .border-frame-inner{
   position:absolute;
   inset:14px;
@@ -165,7 +186,12 @@ body{
   font-family:'Bodoni Moda', serif;
   font-size:54px;
   font-weight:400;
-  color:var(--ink);
+  color:var(--gold-deep);
+  background:linear-gradient(165deg, #f6d9ac 8%, #d79f61 42%, #995c22 78%, #f2c98f 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 1px 0 rgba(255,235,206,0.32), 0 8px 16px rgba(128,77,36,0.18);
   letter-spacing:0.05em;
   line-height:1.12;
   display:block;
@@ -178,6 +204,7 @@ body{
   display:block;
   margin:0.34rem 0;
   letter-spacing:0.14em;
+  text-shadow:0 4px 12px rgba(134,81,39,0.2);
 }
 .details-wrap{
   margin:1.5rem 0 0;
@@ -308,6 +335,8 @@ body{
   .ayah-ar{font-size:16px;line-height:2.05}
   .occasion-en{font-size:9px;letter-spacing:0.22em}
   .detail-item{padding:0.8rem 0.45rem}
+  .border-frame::before,
+  .border-frame::after{width:34px;height:34px}
 }
 
 @media (prefers-reduced-motion:reduce){
