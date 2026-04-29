@@ -19,7 +19,22 @@
 </head>
 <body>
 <main class="page-shell" aria-label="Invitation page">
-<article class="card" aria-label="Qira'at Al-Fatiha invitation card">
+
+<!-- Envelope -->
+<div class="envelope-container" id="envelopeContainer">
+  <div class="envelope">
+    <div class="envelope-front">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+        <rect x="6" y="14" width="52" height="36" rx="4" fill="#fdfaf6" stroke="#c4905a" stroke-width="4"/>
+        <path d="M8 18 32 36 56 18" fill="none" stroke="#c4905a" stroke-width="4"/>
+      </svg>
+      <p>Open Invitation</p>
+    </div>
+    <div class="envelope-flap"></div>
+  </div>
+</div>
+
+<article class="card hidden" id="invitationCard" aria-label="Qira'at Al-Fatiha invitation card">
   <div class="border-frame"></div>
   <div class="border-frame-inner"></div>
 
@@ -88,5 +103,29 @@
   </div>
 </article>
 </main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const envelopeContainer = document.getElementById('envelopeContainer');
+  const envelope = document.querySelector('.envelope');
+  const invitationCard = document.getElementById('invitationCard');
+
+  envelope.addEventListener('click', function() {
+    envelope.classList.add('opened');
+    
+    setTimeout(function() {
+      envelopeContainer.style.display = 'none';
+      invitationCard.classList.remove('hidden');
+      invitationCard.classList.add('show');
+    }, 600);
+  });
+
+  // Also allow clicking the envelope container
+  envelopeContainer.addEventListener('click', function(e) {
+    if (e.target === envelopeContainer || e.target.closest('.envelope')) {
+      envelope.click();
+    }
+  });
+});
+</script>
 </body>
 </html>
